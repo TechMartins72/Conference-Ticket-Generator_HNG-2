@@ -13,7 +13,6 @@ const RootLayouts = () => {
       <main className="main">
         <Header />
         <section className="section">
-          <Steps step="1" value="Ticket Selection" width="1/3" />
           <Outlet />
         </section>
         <BackgroundB />

@@ -7,6 +7,7 @@ import { useContext } from "react";
 import { AppContext } from "../ContextAPI";
 import Invalid from "./Invalid";
 import { useEffect } from "react";
+import Steps from "./Steps";
 
 const FormPage = () => {
   const navigate = useNavigate();
@@ -14,9 +15,10 @@ const FormPage = () => {
     setSelected,
     setAvatarErrorShow,
     userData,
-    userData: { image },
+    userImage,
+    setUserImage,
     setUserData,
-    handleEmail,
+    setImageLoading,
   } = useContext(AppContext);
 
   const {
@@ -37,7 +39,7 @@ const FormPage = () => {
   }, []);
 
   const onSubmit = (data) => {
-    if (image == "") {
+    if (userImage == "") {
       setAvatarErrorShow(true);
       console.log("Please upload an avatar");
     } else {
@@ -47,6 +49,8 @@ const FormPage = () => {
   };
   return (
     <>
+      <Steps step="2" width="w-2/3" value="Attendee Details" />
+
       <form
         onSubmit={handleSubmit(onSubmit)}
         onChange={() => {
@@ -110,6 +114,8 @@ const FormPage = () => {
               func={() => {
                 setSelected(false);
                 localStorage.clear();
+                setImageLoading(false);
+                setUserImage("");
               }}
             />
           </Link>

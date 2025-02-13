@@ -5,7 +5,7 @@ import Ticket from "./Ticket";
 import { AppContext } from "../ContextAPI";
 
 const GenerateTicketPage = () => {
-  const { setSelected, userData, setUserData } = useContext(AppContext);
+  const { setSelected, setUserImage, setUserData } = useContext(AppContext);
 
   return (
     <>
@@ -26,8 +26,9 @@ const GenerateTicketPage = () => {
             outline
             func={() => {
               setSelected(false);
-              setUserData({ image: "", details: {} });
+              setUserData({ details: {} });
               localStorage.clear();
+              setUserImage("");
             }}
           />
         </Link>

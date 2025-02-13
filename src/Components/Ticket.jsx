@@ -6,9 +6,8 @@ import Barcode from "./Barcode";
 import { AppContext } from "../ContextAPI";
 
 const Ticket = () => {
-  const { userData } = useContext(AppContext);
+  const { userImage } = useContext(AppContext);
 
-  const { image } = userData;
   return (
     <section className="h-[650px] w-[350px] flex flex-col items-center relative mx-auto">
       <img src={ticketbg} className="h-full w-full" />
@@ -28,7 +27,7 @@ const Ticket = () => {
               <div className="mx-auto w-full">
                 <div className="w-[70%] mx-auto h-[11.5rem] border-2 border-amber-100 rounded-2xl overflow-hidden">
                   <img
-                    src={image}
+                    src={userImage}
                     alt="user's image"
                     className="h-full w-full bg-cover"
                   />

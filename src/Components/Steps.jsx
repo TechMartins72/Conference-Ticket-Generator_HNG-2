@@ -10,7 +10,7 @@ const Steps = ({ value, width, step }) => {
       </div>
       <div className="w-full h-1 rounded-full bg-[#0E464F] relative flex">
         <div
-          className={`absolute top-0 left-0 bg-[#24A0B5] h-full w-${width}`}
+          className={`absolute top-0 left-0 bg-[#24A0B5] h-full ${width}`}
         ></div>
       </div>
     </div>
