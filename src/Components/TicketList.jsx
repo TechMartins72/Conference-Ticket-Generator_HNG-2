@@ -1,21 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../ContextAPI";
 
 const TicketList = ({ detail }) => {
+  const { selected, setSelected, setHomeError } = useContext(AppContext);
   const { type, fee } = detail;
   return (
-    <div
+    <button
+      onClick={() => {
+        setSelected(!selected);
+        setHomeError(false);
+      }}
       className={`${
-        fee == "Free" ? "bg-[#197686]" : "bg-transparent"
-      } border-[1px] border-[#07373F] rounded-[12px] p-[8px] flex justify-between gap-4`}
+        fee == "Free"
+          ? "cursor-pointer hover:bg-[#197686]"
+          : "bg-transparent cursor-not-allowed"
+      } ${
+        selected && "bg-[#197686]"
+      } border-[1px] border-[#07373F] rounded-[12px] p-[8px] text-left gap-4 outline-none transition-all duration-300 ease-in-out`}
     >
       <span>
-        <p className="text-base font-semibold">{type}</p>
-        <p>20 left!</p>
-      </span>   
-      <span className="h-fit bg-[#0E464F] border-[1px] border-[#2BA4B9] rounded-[8px] font-semibold text-xl p-[8px] w-[80px]">
-        <p className="text-right">{fee}</p>
+        <p className="text-2xl mb-2 font-semibold">{fee}</p>
+        <p className="md:text-xl font-semibold">{type}</p>
+        <small>20/52</small>
       </span>
-    </div>
+    </button>
   );
 };
 
