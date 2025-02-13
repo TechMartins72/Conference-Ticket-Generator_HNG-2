@@ -6,10 +6,25 @@ export const AppContext = createContext();
 const AppContextProvider = (props) => {
   const [selected, setSelected] = useState(false);
   const [homeError, setHomeError] = useState(false);
-  const [userImage, setUserImage] = useState();
+  const [userImage, setUserImage] = useState("");
   const [imageLoading, setImageLoading] = useState(false);
+  const [avatarErrorShow, setAvatarErrorShow] = useState(false);
 
-  const handleSubmit = async (file) => {
+  const [userData, setUserData] = useState({
+    image: "",
+    details: {},
+  });
+
+  useEffect(() => {
+    const stored_image = JSON.parse(localStorage.getItem("image"));
+    console.log(stored_image);
+    console.log(userImage);
+    if (stored_image) {
+      setUserImage(stored_image !== undefined ? stored_image : "");
+    }
+  }, [userData.image]);
+
+  const handleImageUpload = async (file) => {
     setImageLoading(true);
     const data = new FormData();
     data.append("file", file);
@@ -26,7 +41,11 @@ const AppContextProvider = (props) => {
 
     const uploadedImage = await res.json();
     console.log(uploadedImage.secure_url);
-    setUserImage(uploadedImage.secure_url);
+    setUserData({
+      ...userData,
+      image: uploadedImage.secure_url,
+    });
+    localStorage.setItem("image", JSON.stringify(uploadedImage.secure_url));
     setImageLoading(false);
   };
 
@@ -58,7 +77,11 @@ const AppContextProvider = (props) => {
         setUserImage,
         imageLoading,
         setImageLoading,
-        handleSubmit,
+        handleImageUpload,
+        userData,
+        setUserData,
+        avatarErrorShow,
+        setAvatarErrorShow,
       }}
     >
       {props.children}

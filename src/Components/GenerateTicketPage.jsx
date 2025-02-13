@@ -5,7 +5,8 @@ import Ticket from "./Ticket";
 import { AppContext } from "../ContextAPI";
 
 const GenerateTicketPage = () => {
-  const { setSelected } = useContext(AppContext);
+  const { setSelected, userData, setUserData } = useContext(AppContext);
+
   return (
     <>
       <div className="flex flex-col justify-around text-center">
@@ -16,6 +17,7 @@ const GenerateTicketPage = () => {
       </div>
       <Ticket />
       <div className="buttonbox">
+        <Button value="Download Ticket" bg="[#24A0B5]" outline />
         <Link to="/">
           <Button
             value="Book Another Ticket"
@@ -24,10 +26,10 @@ const GenerateTicketPage = () => {
             outline
             func={() => {
               setSelected(false);
+              setUserData({ image: "", details: {} });
             }}
           />
         </Link>
-        <Button value="Download Ticket" bg="[#24A0B5]" outline />
       </div>
     </>
   );
