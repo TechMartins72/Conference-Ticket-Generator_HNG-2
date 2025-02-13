@@ -1,12 +1,19 @@
 import React from "react";
-import Steps from "./Steps";
+import { Link } from "react-router";
 import ImageUpload from "./ImageUpload";
 import Button from "./Button";
+import { useContext } from "react";
+import { AppContext } from "../ContextAPI";
 
 const FormPage = () => {
+  const { setSelected } = useContext(AppContext);
+
+  const handleGenerateTicket = () => {};
+
+
   return (
     <>
-      <form className="w-full border-[1px] border-[#0E464F] bg-[#08252B] p-[24px] flex flex-col gap-4 rounded-[32px]">
+      <form className="form">
         <ImageUpload />
         <div className="border-t-4 border-[#07373F] py-8 flex flex-col gap-2">
           <label htmlFor="name">
@@ -30,9 +37,20 @@ const FormPage = () => {
             placeholder="Declare your special request(s)"
           />
         </div>
-        <div className="w-full h-fit rounded-[24px] flex justify-between items-center flex-wrap-reverse max-md:gap-4">
-          <Button value="Cancel" bg="transaparent" outline />
-          <Button value="Next" bg="[#24A0B5]" />
+        <div className="buttonbox">
+          <Link to="/">
+            <Button
+              value="Back"
+              bg="transaparent"
+              outline
+              func={() => {
+                setSelected(false);
+              }}
+            />
+          </Link>
+          <Link to="/ticket-generate">
+            <Button value="Get My Free Ticket" bg="[#24A0B5]" />
+          </Link>
         </div>
       </form>
     </>

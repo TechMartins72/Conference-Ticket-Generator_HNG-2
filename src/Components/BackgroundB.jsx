@@ -3,11 +3,11 @@ import background from "/background.png";
 
 const BackgroundB = () => {
   return (
-    <div className="w-full absolute bottom-0 left-0 z-[-1]">
+    <div className="background">
       <img
         src={background}
         alt="bg"
-        className="w-full h-full overflow-hidden"
+        className="backgroundimage"
       />
     </div>
   );

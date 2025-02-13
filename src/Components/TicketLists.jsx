@@ -21,7 +21,7 @@ const TicketLists = () => {
     <div className="border-t-4 border-[#07373F] py-4">
       <div className="flex flex-col gap-4">
         <p>Select Ticket Type:</p>
-        <div className="grid md:grid-cols-2 gap-8 p-[16px] bg-[#052228] border-[1px] border-[#07373F] rounded-[24px]">
+        <div className="ticketlist">
           {details.map((detail, index) => (
             <TicketList detail={detail} key={index} />
           ))}

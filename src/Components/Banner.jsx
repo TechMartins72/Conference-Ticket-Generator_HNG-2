@@ -2,7 +2,7 @@ import React from "react";
 
 const Banner = ({ homepage }) => {
   return (
-    <div className="bg-gradient-to-br text-center from-[#07373F] to-[#0E464F] w-full rounded-[24px] border-[1px] border-[#07373F] px-[24px] py-[16px] flex flex-col gap-4">
+    <div className="banner">
       <h2 className="font-bold text-4xl max-md:text-2xl italic">
         Techember Fest "25
       </h2>
