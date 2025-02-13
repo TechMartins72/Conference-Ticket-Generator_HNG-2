@@ -7,6 +7,7 @@ import {
 } from "react-router";
 import RootLayouts from "./Layouts/RootLayouts";
 import HomePage from "./Components/HomePage";
+import About from "./Components/About";
 import FormPage from "./Components/FormPage";
 import GenerateTicketPage from "./Components/GenerateTicketPage";
 
@@ -14,6 +15,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayouts />}>
       <Route index element={<HomePage />}></Route>
+      <Route path="about-project" element={<About />}></Route>
       <Route path="ticket-details" element={<FormPage />}></Route>
       <Route path="ticket-generate" element={<GenerateTicketPage />}></Route>
     </Route>

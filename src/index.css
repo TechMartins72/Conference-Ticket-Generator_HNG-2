@@ -4,7 +4,7 @@
   @apply flex flex-col gap-8 bg-transparent border-[1px] border-[#0E464F] flex-1 w-[60%] max-md:w-full max-lg:w-[75%] mt-8 mx-auto rounded-2xl p-[48px] max-lg:p-[24px];
 }
 .input {
-  @apply p-[12px] border-[1px] border-[rgb(7,55,63)] rounded-[12px] outline-none mb-2;
+  @apply p-[12px] border-[1px] border-[rgb(7,55,63)] rounded-[12px] outline-none mb-2 hover:border-white focus:border-white transition-all duration-300 ease-in-out;
 }
 .buttonbox {
   @apply w-full h-fit rounded-[24px] flex justify-center items-center gap-4 flex-row-reverse flex-wrap-reverse;
