@@ -109,6 +109,7 @@ const FormPage = () => {
               outline
               func={() => {
                 setSelected(false);
+                localStorage.clear();
               }}
             />
           </Link>

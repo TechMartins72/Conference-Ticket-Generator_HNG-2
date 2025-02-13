@@ -27,6 +27,7 @@ const GenerateTicketPage = () => {
             func={() => {
               setSelected(false);
               setUserData({ image: "", details: {} });
+              localStorage.clear();
             }}
           />
         </Link>

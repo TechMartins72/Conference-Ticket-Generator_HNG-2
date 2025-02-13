@@ -35,8 +35,14 @@ const ImageUpload = () => {
       className={`w-full border-[1px] border-[rgb(7,55,63)] p-[24px] flex flex-col gap-4 rounded-[24px]`}
     >
       <p>Upload Profile Photo</p>
-      <div className="w-full h-[240px] relative overflow-hidden flex rounded-[24px] ">
-        <img src={userImage} className="w-full h-full object-cover" />
+      <div className="w-full h-[240px] relative flex rounded-[24px] ">
+        {userImage !== "" && (
+          <img
+            src={userImage}
+            className="w-full h-full object-cover rounded-[24px]"
+          />
+        )}
+
         <div
           {...getRootProps()}
           className={`bg-[#0E464F] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center text-center md:w-[50%] h-full rounded-[32px] mx-auto cursor-pointer ${
