@@ -36,21 +36,18 @@ const ImageUpload = () => {
     >
       <p>Upload Profile Photo</p>
       <div className="w-full h-[240px] relative flex rounded-[24px] ">
-        {userImage !== "" && (
-          <img
-            src={userImage}
-            className="w-full h-full object-cover rounded-[24px]"
-          />
-        )}
-
         <div
           {...getRootProps()}
-          className={`bg-[#0E464F] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center text-center md:w-[50%] h-full rounded-[32px] mx-auto cursor-pointer ${
-            userImage != "" && "opacity-[.3]"
-          }`}
+          className={`bg-[#0E464F] relative flex flex-col justify-center items-center text-center md:w-[50%] h-full w-full rounded-[32px] mx-auto cursor-pointer`}
         >
+          {userImage !== "" && (
+            <img
+              src={userImage}
+              className="w-full h-full object-cover rounded-[24px] top-0 left-0"
+            />
+          )}
           <input {...getInputProps()} />
-          <span className="p-16">
+          <span className="p-16 absolute">
             {imageLoading ? (
               "Loading..."
             ) : (

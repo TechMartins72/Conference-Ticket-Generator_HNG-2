@@ -1,5 +1,4 @@
-import React, { createContext, useState } from "react";
-import { useEffect } from "react";
+import React, { useEffect, createContext, useState } from "react";
 
 export const AppContext = createContext();
 
@@ -9,14 +8,12 @@ const AppContextProvider = (props) => {
   const [userImage, setUserImage] = useState("");
   const [imageLoading, setImageLoading] = useState(false);
   const [avatarErrorShow, setAvatarErrorShow] = useState(false);
-
   const [userData, setUserData] = useState({
     details: {},
   });
 
   useEffect(() => {
     const stored_image = JSON.parse(localStorage.getItem("image"));
-    console.log(stored_image);
     if (stored_image !== null) {
       setUserImage(stored_image);
     } else {
@@ -40,11 +37,7 @@ const AppContextProvider = (props) => {
     );
 
     const uploadedImage = await res.json();
-    console.log(uploadedImage.secure_url);
-    // setUserData({
-    //   ...userData,
-    //   image: uploadedImage.secure_url,
-    // });
+
     setUserImage(uploadedImage.secure_url);
     localStorage.setItem("image", JSON.stringify(uploadedImage.secure_url));
     setImageLoading(false);

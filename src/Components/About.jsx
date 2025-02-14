@@ -1,7 +1,6 @@
 import React from "react";
-import { useResolvedPath } from "react-router";
 import Button from "./Button";
-import { useEffect } from "react";
+import { Link } from "react-router";
 
 const About = () => {
   return (

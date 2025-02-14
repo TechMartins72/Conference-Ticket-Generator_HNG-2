@@ -15,6 +15,15 @@
 .main {
   @apply flex flex-col bg-[#02191D] text-white font-[Montserrat] min-h-screen relative px-[12px] py-8 z-[2];
 }
+.headerBtn {
+  @apply rounded-2xl bg-white text-black px-[24px] hover:bg-[#24A0B5] transition hover:text-white py-[16px] cursor-pointer font-semibold md:w-[210px] hover:drop-shadow-2xl flex gap-2 justify-center items-center;
+}
+.header{
+  @apply w-[95%] flex justify-between items-center px-[16px] py-[12px] bg-[#05252C] rounded-2xl mx-auto max-lg:w-[98%] max-lg:px-4
+}
+.transition {
+  @apply transition-all ease-in-out duration-300;
+}
 .banner {
   @apply bg-gradient-to-br text-center from-[#07373F] to-[#0E464F] w-full rounded-[24px] border-[1px] border-[#07373F] px-[24px] py-[16px] flex flex-col gap-4;
 }
